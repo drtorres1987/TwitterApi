@@ -12,7 +12,7 @@ using Twitter.Service.Services.Interfaces;
 namespace TwitterConsole.Test.Services
 {
     [TestFixture()]
-    public class ServiceTest
+    public class TweetServiceTest
     {
         private ITweetRepository _tweetRepository;
         private IHashTagRepository _hashTagRepository;
