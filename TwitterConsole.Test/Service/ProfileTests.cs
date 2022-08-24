@@ -16,17 +16,16 @@ namespace TwitterConsole.Test.AutoMapper.Service
 
         [SetUp]
         public void Setup()
-        {
-            config.AssertConfigurationIsValid();
+        {            
             config = new MapperConfiguration(cfg => cfg.AddProfile<TwittProfile>());
-           
+            config.AssertConfigurationIsValid();
+
             mapper = config.CreateMapper();
         }
 
         [Test]
         public void Test_Twitt_Mapper()
         {
-
             var tag = "TagTest";
             var twitt = "Test";
             var twittINfo = new TwittInfo()
