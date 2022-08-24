@@ -1,0 +1,307 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\TwitterConsole.Test\\TwitterConsole.Test.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Client\\Twitter.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Client\\Twitter.Client.csproj",
+        "projectName": "Twitter.Client",
+        "projectPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Client\\Twitter.Client.csproj",
+        "packagesPath": "C:\\Users\\drtor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\drtor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[3.1.28, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.DataAccess\\Twitter.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.DataAccess\\Twitter.DataAccess.csproj",
+        "projectName": "Twitter.DataAccess",
+        "projectPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.DataAccess\\Twitter.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\drtor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\drtor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Services\\Twitter.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Services\\Twitter.Services.csproj",
+        "projectName": "Twitter.Services",
+        "projectPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Services\\Twitter.Services.csproj",
+        "packagesPath": "C:\\Users\\drtor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\drtor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Client\\Twitter.Client.csproj": {
+                "projectPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Client\\Twitter.Client.csproj"
+              },
+              "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.DataAccess\\Twitter.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.DataAccess\\Twitter.DataAccess.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\TwitterConsole.Test\\TwitterConsole.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\TwitterConsole.Test\\TwitterConsole.Test.csproj",
+        "projectName": "TwitterConsole.Test",
+        "projectPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\TwitterConsole.Test\\TwitterConsole.Test.csproj",
+        "packagesPath": "C:\\Users\\drtor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\TwitterConsole.Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\drtor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Client\\Twitter.Client.csproj": {
+                "projectPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Client\\Twitter.Client.csproj"
+              },
+              "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.DataAccess\\Twitter.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.DataAccess\\Twitter.DataAccess.csproj"
+              },
+              "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Services\\Twitter.Services.csproj": {
+                "projectPath": "C:\\Users\\drtor\\Desktop\\TwitterAPI\\TwitterAPI\\Twitter.Services\\Twitter.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.11.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.2, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.2, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

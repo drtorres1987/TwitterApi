@@ -1,0 +1,9 @@
+D:\Development\Practice\TwitterAPI\TwitterAPI.DataAccess\obj\Debug\netcoreapp3.1\TwitterAPI.DataAccess.csprojAssemblyReference.cache
+D:\Development\Practice\TwitterAPI\TwitterAPI.DataAccess\obj\Debug\netcoreapp3.1\TwitterAPI.DataAccess.AssemblyInfoInputs.cache
+D:\Development\Practice\TwitterAPI\TwitterAPI.DataAccess\obj\Debug\netcoreapp3.1\TwitterAPI.DataAccess.AssemblyInfo.cs
+D:\Development\Practice\TwitterAPI\TwitterAPI.DataAccess\obj\Debug\netcoreapp3.1\TwitterAPI.DataAccess.csproj.CoreCompileInputs.cache
+D:\Development\Practice\TwitterAPI\TwitterAPI.DataAccess\bin\Debug\netcoreapp3.1\TwitterAPI.DataAccess.deps.json
+D:\Development\Practice\TwitterAPI\TwitterAPI.DataAccess\bin\Debug\netcoreapp3.1\TwitterAPI.DataAccess.dll
+D:\Development\Practice\TwitterAPI\TwitterAPI.DataAccess\bin\Debug\netcoreapp3.1\TwitterAPI.DataAccess.pdb
+D:\Development\Practice\TwitterAPI\TwitterAPI.DataAccess\obj\Debug\netcoreapp3.1\TwitterAPI.DataAccess.dll
+D:\Development\Practice\TwitterAPI\TwitterAPI.DataAccess\obj\Debug\netcoreapp3.1\TwitterAPI.DataAccess.pdb
