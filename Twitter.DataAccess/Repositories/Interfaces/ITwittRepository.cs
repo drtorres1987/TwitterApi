@@ -5,6 +5,6 @@ namespace Twitter.DataAccess.Repositories.Interfaces
 {
     public interface ITwittRepository : IRepository<Twitt>
     {
-        public Task<int> TotalCount();
+        public int TotalCount();
     }
 }

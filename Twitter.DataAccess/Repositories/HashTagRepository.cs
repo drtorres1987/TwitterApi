@@ -1,30 +1,37 @@
-﻿using Twitter.DataAccess.Context;
-using Twitter.DataAccess.Dtos;
+﻿using Twitter.DataAccess.Dtos;
 using Twitter.DataAccess.Entities;
 using Twitter.DataAccess.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Concurrent;
 
 namespace Twitter.DataAccess.Repositories
 {
-    public class HashTagRepository : BaseRepository<HashTag, Context.TwitterDBContext>, IHashTagRepository
+    public class HashTagRepository : IHashTagRepository
     {
-        public HashTagRepository(Context.TwitterDBContext context) : base(context)
+        private readonly ConcurrentBag<HashTag> hashTags;       
+
+        public HashTagRepository()
         {
+            hashTags = new ConcurrentBag<HashTag>();
         }
 
-        public async Task<List<HashTagCount>> TopNAsync(int topN)
+        public List<HashTagCount> TopHashTags(int number)
         {
-            var hashes = this.context.HashTags.Take(100).ToList();
-            var result = await this.context.HashTags
+            var result = this.hashTags
                 .GroupBy(x => x.Tag)
                 .Select(x => new HashTagCount() { Tag = x.Key, Count = x.Count() })
                 .OrderByDescending(x => x.Count)
-                .Take(topN)
-                .ToListAsync();
+                .Take(number)
+                .ToList();
             return result;
+        }        
+
+        public void Add(HashTag entity)
+        {
+            hashTags.Add(entity);
         }
     }
 }

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Twitter.DataAccess.Entities;
 using Twitter.DataAccess.Repositories.Interfaces;
-using Twitter.DataAccess.UnitOfWork;
 using Twitter.Service.Models.Twitter;
 using Twitter.Service.Services;
 using Twitter.Service.Services.Interfaces;
@@ -17,7 +16,6 @@ namespace TwitterConsole.Test.Services
     {
         private ITwittRepository _twittRepository;
         private IHashTagRepository _hashTagRepository;
-        private IUnitOfWork _unitOfWork;
         private IMapper _mapper;
         private ITwittService _twittService;
 
@@ -25,11 +23,10 @@ namespace TwitterConsole.Test.Services
         public void Setup()
         {
 
-            _unitOfWork = Mock.Of<IUnitOfWork>();
             _hashTagRepository = Mock.Of<IHashTagRepository>();
             _twittRepository = Mock.Of<ITwittRepository>();
             _mapper = Mock.Of<IMapper>();
-            this._twittService = new TwittService(_unitOfWork, _twittRepository, _hashTagRepository, _mapper);
+            this._twittService = new TwittService( _twittRepository, _hashTagRepository, _mapper);
         }
 
         [Test]
@@ -68,12 +65,7 @@ namespace TwitterConsole.Test.Services
                 }
             };
             Mock.Get(_hashTagRepository)
-                .Setup(s => s.Add(It.IsAny<Twitter.DataAccess.Entities.HashTag>()));
-
-            Mock.Get(_unitOfWork)
-                .Setup(s => s.CommitChangesAsync());
-
-
+                .Setup(s => s.Add(It.IsAny<Twitter.DataAccess.Entities.HashTag>()));     
 
             Mock.Get(_mapper)
                 .Setup(s => s.Map<Twitt>(It.IsAny<TwittInfo>()))
@@ -83,7 +75,7 @@ namespace TwitterConsole.Test.Services
                 .Setup(s => s.Add(It.IsAny<Twitt>()));
             
 
-            await _twittService.AddTwittAsync(twittINfo);
+            _twittService.AddTwittAsync(twittINfo);
 
             // Assert
             Mock.VerifyAll();

@@ -18,11 +18,13 @@ namespace Twitter.Service.Services
         }
 
         /// <inheritdoc/>
-        public async Task<HashTagReport> GetHashTags(int topN)
+        public async Task<HashTagReport> GetHashTags(int number)
         {
-            var result = new HashTagReport();
-            result.TotalTwitts = await this._twittRepository.TotalCount();
-            var hasTags = await this._hashTagRepository.TopNAsync(topN);
+            var result = new HashTagReport
+            {
+                TotalTwitts = this._twittRepository.TotalCount()
+            };
+            var hasTags = this._hashTagRepository.TopHashTags(number);
             result.HashTags = hasTags.Select(c => new HashTagRecord()
             {
                 Tag = c.Tag,
@@ -30,5 +32,7 @@ namespace Twitter.Service.Services
             });
             return await Task.FromResult(result);
         }
+
+
     }
 }

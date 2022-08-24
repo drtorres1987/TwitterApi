@@ -7,6 +7,6 @@ namespace Twitter.DataAccess.Repositories.Interfaces
 {
     public interface IHashTagRepository : IRepository<HashTag>
     {
-        Task<List<HashTagCount>> TopNAsync(int topN);
+        public List<HashTagCount> TopHashTags(int number);
     }
 }

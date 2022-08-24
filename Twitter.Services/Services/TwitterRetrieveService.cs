@@ -29,7 +29,7 @@ namespace Twitter.Service.Services
         {
             await foreach (var twitt in this._twittClient.GetTwittsAsync(cancellationToken).WithCancellation(cancellationToken))
             {
-                _queue.EnqueueTwitt(twitt);
+                _queue.AddTwitt(twitt);
             }
         }
     }

@@ -44,12 +44,12 @@ namespace Twitter.HostedServices
             }
         }
 
-        private void DoWork(object? state)
+        private async void DoWork(object? state)
         {
             try
             {
-                var result = _reportService.GetHashTags(_options.Value.TopRetrieveCount);
-                var data = this.mapper.Map<HashTagReport>(result.Result);
+                var result = await _reportService.GetHashTags(_options.Value.TopRetrieveCount);
+                var data = this.mapper.Map<HashTagReport>(result);
                 var listTags = data.HashTags.Select(x => x.Tag);
                 _logger.LogInformation("Twitter HashTags:{data}/ TotalTwitts: {count}", string.Join(",", listTags), data.TotalTwitts);
             }
@@ -63,6 +63,7 @@ namespace Twitter.HostedServices
         public Task StopAsync(CancellationToken stoppingToken)
         {
             _logger.LogInformation("Processing retrived twitts into console stopping.");
+            _timer?.Change(Timeout.Infinite, 0);
             return Task.CompletedTask;
         }
 

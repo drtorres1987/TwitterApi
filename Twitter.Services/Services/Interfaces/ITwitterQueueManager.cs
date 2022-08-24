@@ -8,13 +8,13 @@ namespace Twitter.Service.Services.Interfaces
         /// Enqueue a Json string
         /// </summary>
         /// <param name="twitt"></param>
-        void EnqueueTwitt(string twitt);
+        void AddTwitt(string twitt);
 
         /// <summary>
         /// Dequeue the item and converts it to the Target Type
         /// </summary>
         /// <returns>The Item being dequeued</returns>
-        TwittInfo DeQueueTwitt();
+        TwittInfo GetTwitt();
 
         /// <summary>
         /// Queue Count

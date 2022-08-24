@@ -28,12 +28,12 @@ namespace Twitter.Service.Services
                 {
                     if (this._queue.Count() == 0)
                     {
-                        await Task.Delay(500, cancellationToken);
+                        await Task.Delay(200, cancellationToken);
                         continue;
                     }
-                    var twitt = _queue.DeQueueTwitt();
+                    var twitt = _queue.GetTwitt();
                     if (twitt != null)
-                        await this._service.AddTwittAsync(twitt);
+                        this._service.AddTwittAsync(twitt);
                 }
                 catch (Exception ex)
                 {

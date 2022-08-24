@@ -1,15 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System.IO;
-using Twitter.DataAccess.Context;
 using Twitter.Client.Configuration;
 using Twitter.DataAccess.Repositories.Interfaces;
 using Twitter.DataAccess.Repositories;
-using Twitter.DataAccess.UnitOfWork;
 using Twitter.HostedServices;
 using System.Net.Http;
 using Polly.Extensions.Http;
@@ -61,21 +58,16 @@ namespace Twitter
                            // Automapper
                            services.AddAutoMapper(Assembly.GetExecutingAssembly(), (typeof(TwittService).Assembly));
 
-                           // DB
-                           services.AddDbContext<TwitterDBContext>(opt => opt.UseInMemoryDatabase("TwitterDB"));
-
-
-                           // Services
-                           services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork<TwitterDBContext>));
+                           // Services                           
                            services.AddSingleton<ITwitterQueueManager, ConcurrentQueueManager>();
-                           services.AddScoped<ITwittProcessingService, TwiitProcessService>();
-                           services.AddScoped<ITwitterConsumerService, TwitterRetrieveService>();
-                           services.AddScoped<ITwittService, TwittService>();
-                           services.AddScoped<IHashTagService, HashTagService>();
+                           services.AddSingleton<ITwittProcessingService, TwiitProcessService>();
+                           services.AddSingleton<ITwitterConsumerService, TwitterRetrieveService>();
+                           services.AddSingleton<ITwittService, TwittService>();
+                           services.AddSingleton<IHashTagService, HashTagService>();
 
                            //Repositories
-                           services.AddScoped<ITwittRepository, TwittRepository>();
-                           services.AddScoped<IHashTagRepository, HashTagRepository>();
+                           services.AddSingleton<ITwittRepository, TwittRepository>();
+                           services.AddSingleton<IHashTagRepository, HashTagRepository>();
                        })
                        .UseSerilog()
                        .Build();

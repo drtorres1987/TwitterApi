@@ -27,12 +27,14 @@ namespace Twitter.Service.Services
         }
 
         /// <inheritdoc/>
-        public TwittInfo DeQueueTwitt()
+        public TwittInfo GetTwitt()
         {
             if (this.queue.TryTake(out string result))
             {
-                var options = new JsonSerializerOptions();
-                options.PropertyNameCaseInsensitive = true;
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
                 options.Converters.Add(new JsonStringEnumConverter());
 
                 var setting = new JsonSerializerSettings()
@@ -55,7 +57,7 @@ namespace Twitter.Service.Services
         }
 
         /// <inheritdoc/>
-        public void EnqueueTwitt(string twitt)
+        public void AddTwitt(string twitt)
         {
             this.queue.Add(twitt);
         }

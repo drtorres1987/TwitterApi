@@ -30,11 +30,11 @@ namespace TwitterConsole.Test.Services
             int total = 10;
             var test = new List<HashTagCount>() { new HashTagCount() };
             Mock.Get(hashTagRepository)
-                .Setup(s => s.TopNAsync(It.IsAny<int>()))
-                .ReturnsAsync(test);
+                .Setup(s => s.TopHashTags(It.IsAny<int>()))
+                .Returns(test);
             Mock.Get(twittRepository)
                 .Setup(s => s.TotalCount())
-                .ReturnsAsync(total);
+                .Returns(total);
             var result = await reportService.GetHashTags(2);
 
             // Assert
