@@ -1,9 +1,0 @@
-D:\Development\Practice\TwitterAPI\TwitterAPI.Client\bin\Debug\netcoreapp3.1\TwitterAPI.Client.deps.json
-D:\Development\Practice\TwitterAPI\TwitterAPI.Client\bin\Debug\netcoreapp3.1\TwitterAPI.Client.dll
-D:\Development\Practice\TwitterAPI\TwitterAPI.Client\bin\Debug\netcoreapp3.1\TwitterAPI.Client.pdb
-D:\Development\Practice\TwitterAPI\TwitterAPI.Client\obj\Debug\netcoreapp3.1\TwitterAPI.Client.csprojAssemblyReference.cache
-D:\Development\Practice\TwitterAPI\TwitterAPI.Client\obj\Debug\netcoreapp3.1\TwitterAPI.Client.AssemblyInfoInputs.cache
-D:\Development\Practice\TwitterAPI\TwitterAPI.Client\obj\Debug\netcoreapp3.1\TwitterAPI.Client.AssemblyInfo.cs
-D:\Development\Practice\TwitterAPI\TwitterAPI.Client\obj\Debug\netcoreapp3.1\TwitterAPI.Client.csproj.CoreCompileInputs.cache
-D:\Development\Practice\TwitterAPI\TwitterAPI.Client\obj\Debug\netcoreapp3.1\TwitterAPI.Client.dll
-D:\Development\Practice\TwitterAPI\TwitterAPI.Client\obj\Debug\netcoreapp3.1\TwitterAPI.Client.pdb
