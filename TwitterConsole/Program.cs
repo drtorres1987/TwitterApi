@@ -47,26 +47,26 @@ namespace Twitter
                            services.Configure<TwitterRetriveSettings>(options => context.Configuration.GetSection("RetrieveSetting").GetSection("Twitter").Bind(options));
 
                            // HostedServices
-                           services.AddHostedService<RetrieveDataFromExternalServiceHostedService>();
-                           services.AddHostedService<InsertDataToDbHostedService>();
-                           services.AddHostedService<RetrieveTwittsHostedService>();
+                           services.AddHostedService<ConsumeTwitterHostedService>();
+                           services.AddHostedService<ProcessTweetsHostedService>();
+                           services.AddHostedService<ReportTweetsHostedService>();
 
                            // HttpClients
-                           services.AddHttpClient<ITwiitAPI, TwiitAPI>()
+                           services.AddHttpClient<ITweetAPI, TweetAPI>()
                             .AddPolicyHandler(GetRetryPolicy());
 
                            // Automapper
-                           services.AddAutoMapper(Assembly.GetExecutingAssembly(), (typeof(TwittService).Assembly));
+                           services.AddAutoMapper(Assembly.GetExecutingAssembly(), (typeof(TweetService).Assembly));
 
                            // Services                           
                            services.AddSingleton<ITwitterQueueManager, ConcurrentQueueManager>();
-                           services.AddSingleton<ITwittProcessingService, TwiitProcessService>();
+                           services.AddSingleton<ITweetProcessingService, TweetProcessService>();
                            services.AddSingleton<ITwitterConsumerService, TwitterRetrieveService>();
-                           services.AddSingleton<ITwittService, TwittService>();
+                           services.AddSingleton<ITweetService, TweetService>();
                            services.AddSingleton<IHashTagService, HashTagService>();
 
                            //Repositories
-                           services.AddSingleton<ITwittRepository, TwittRepository>();
+                           services.AddSingleton<ITweetRepository, TweetRepository>();
                            services.AddSingleton<IHashTagRepository, HashTagRepository>();
                        })
                        .UseSerilog()

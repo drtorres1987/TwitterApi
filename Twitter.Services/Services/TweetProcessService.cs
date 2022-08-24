@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Twitter.Service.Services
 {
-    public class TwiitProcessService : ITwittProcessingService
+    public class TweetProcessService : ITweetProcessingService
     {
         private readonly ITwitterQueueManager _queue;
-        private readonly ITwittService _service;
+        private readonly ITweetService _service;
         private readonly ILogger _logger;
 
-        public TwiitProcessService(ILogger<TwiitProcessService> logger, ITwitterQueueManager queue, ITwittService twittService)
+        public TweetProcessService(ILogger<TweetProcessService> logger, ITwitterQueueManager queue, ITweetService tweetService)
         {
             this._queue = queue;
-            this._service = twittService;
+            this._service = tweetService;
             this._logger = logger;
         }
 
@@ -31,9 +31,9 @@ namespace Twitter.Service.Services
                         await Task.Delay(200, cancellationToken);
                         continue;
                     }
-                    var twitt = _queue.GetTwitt();
-                    if (twitt != null)
-                        this._service.AddTwittAsync(twitt);
+                    var tweet = _queue.GetTwitt();
+                    if (tweet != null)
+                        this._service.AddTweetAsync(tweet);
                 }
                 catch (Exception ex)
                 {

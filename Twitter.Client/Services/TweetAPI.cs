@@ -9,12 +9,12 @@ using Twitter.Client.Interfaces;
 
 namespace Twitter.Client.Services
 {
-    public class TwiitAPI : ITwiitAPI
+    public class TweetAPI : ITweetAPI
     {
         private readonly HttpClient _httpClient;
         private readonly IOptions<ClientConfiguration> options;
 
-        public TwiitAPI(HttpClient httpClient, IOptions<ClientConfiguration> options)
+        public TweetAPI(HttpClient httpClient, IOptions<ClientConfiguration> options)
         {
             this._httpClient = httpClient;
             this.options = options;

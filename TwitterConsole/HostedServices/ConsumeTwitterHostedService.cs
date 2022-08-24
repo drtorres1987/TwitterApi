@@ -7,42 +7,41 @@ using Twitter.Service.Services.Interfaces;
 
 namespace Twitter.HostedServices
 {
-    public class InsertDataToDbHostedService : BackgroundService
+    public class ConsumeTwitterHostedService : BackgroundService
     {
-        private readonly ILogger<InsertDataToDbHostedService> _logger;
-        private readonly ITwittProcessingService _twittProcessingService;
+        private readonly ILogger<ConsumeTwitterHostedService> _logger;
+        private readonly ITwitterConsumerService _twitterConsumerService;
+        
 
-        public InsertDataToDbHostedService(
-            ILogger<InsertDataToDbHostedService> logger,
-            IServiceScopeFactory scopeFactory, ITwittProcessingService twittProcessingService)
+        public ConsumeTwitterHostedService(ILogger<ConsumeTwitterHostedService> logger,ITwitterConsumerService twitterConsumerService)
         {
             this._logger = logger;
-            _twittProcessingService = twittProcessingService;
+            _twitterConsumerService = twitterConsumerService;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             try
-            {
-                _logger.LogInformation("Processing Twtitts Hosted Service running.");
-                await DoWork(stoppingToken);
+            {_logger.LogInformation("Queue the retrieved data into memory");
+
+            await DoWork(stoppingToken);
             }
             catch (System.Exception ex)
             {
                 _logger.LogError(ex.Message);
-                throw;
+                throw ex;
             }
-
         }
 
         private async Task DoWork(CancellationToken stoppingToken)
         {
-            await _twittProcessingService.ProcessTwittsAsync(stoppingToken);
+            await _twitterConsumerService.ConsumeAsync(stoppingToken);
         }
 
         public override async Task StopAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("Processing Twtitts Hosted Service is stopping.");
+            _logger.LogInformation("Queue the retrieved data into memory stopping");
+
             await base.StopAsync(stoppingToken);
         }
     }

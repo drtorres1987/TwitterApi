@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Twitter.DataAccess.Repositories.Interfaces
 {
-    public interface ITwittRepository : IRepository<Twitt>
+    public interface ITweetRepository : IRepository<Tweet>
     {
         public int TotalCount();
     }

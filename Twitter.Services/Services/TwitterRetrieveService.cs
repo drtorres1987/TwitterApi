@@ -13,13 +13,13 @@ namespace Twitter.Service.Services
 {
     public class TwitterRetrieveService : ITwitterConsumerService
     {
-        private readonly ITwiitAPI _twittClient;
+        private readonly ITweetAPI _twitterClient;
         private readonly ITwitterQueueManager _queue;
         private readonly ILogger _logger;
 
-        public TwitterRetrieveService(ILogger<TwitterRetrieveService> logger, ITwiitAPI twittClient, ITwitterQueueManager queue)
+        public TwitterRetrieveService(ILogger<TwitterRetrieveService> logger, ITweetAPI twitterClient, ITwitterQueueManager queue)
         {
-            this._twittClient = twittClient;
+            this._twitterClient = twitterClient;
             this._queue = queue;
             this._logger = logger;
         }
@@ -27,9 +27,9 @@ namespace Twitter.Service.Services
         /// <inheritdoc/>
         public async Task ConsumeAsync(CancellationToken cancellationToken)
         {
-            await foreach (var twitt in this._twittClient.GetTwittsAsync(cancellationToken).WithCancellation(cancellationToken))
+            await foreach (var tweet in this._twitterClient.GetTwittsAsync(cancellationToken).WithCancellation(cancellationToken))
             {
-                _queue.AddTwitt(twitt);
+                _queue.AddTwitt(tweet);
             }
         }
     }

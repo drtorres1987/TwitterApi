@@ -13,15 +13,15 @@ using Twitter.Service.Services.Interfaces;
 
 namespace Twitter.HostedServices
 {
-    public class RetrieveTwittsHostedService : IHostedService, IDisposable
+    public class ReportTweetsHostedService : IHostedService, IDisposable
     {
-        private readonly ILogger<InsertDataToDbHostedService> _logger;
+        private readonly ILogger<ProcessTweetsHostedService> _logger;
         private readonly IHashTagService _reportService;
         private readonly IMapper mapper;
         private readonly IOptions<TwitterRetriveSettings> _options;
         private Timer? _timer = null;
-        public RetrieveTwittsHostedService(
-            ILogger<InsertDataToDbHostedService> logger, IMapper mapper, IHashTagService reportService, IOptions<TwitterRetriveSettings> options)
+        public ReportTweetsHostedService(
+            ILogger<ProcessTweetsHostedService> logger, IMapper mapper, IHashTagService reportService, IOptions<TwitterRetriveSettings> options)
         {
             this._logger = logger;
             _reportService = reportService;
@@ -33,7 +33,7 @@ namespace Twitter.HostedServices
         {
             try
             {
-                _logger.LogInformation("Processing retrived twitts into console.");
+                _logger.LogInformation("Processing retrived tweets into console.");
                 _timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
                 return Task.CompletedTask;
             }
@@ -62,7 +62,7 @@ namespace Twitter.HostedServices
 
         public Task StopAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("Processing retrived twitts into console stopping.");
+            _logger.LogInformation("Processing retrived tweets into console stopping.");
             _timer?.Change(Timeout.Infinite, 0);
             return Task.CompletedTask;
         }

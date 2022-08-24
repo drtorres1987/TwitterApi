@@ -27,7 +27,7 @@ namespace Twitter.Service.Services
         }
 
         /// <inheritdoc/>
-        public TwittInfo GetTwitt()
+        public TweetInfo GetTwitt()
         {
             if (this.queue.TryTake(out string result))
             {
@@ -49,17 +49,17 @@ namespace Twitter.Service.Services
                         NamingStrategy = new CamelCaseNamingStrategy()
                     }
                 };
-                var twitt = JsonConvert.DeserializeObject<TwittInfo>(result, setting);
-                return twitt;
+                var tweet = JsonConvert.DeserializeObject<TweetInfo>(result, setting);
+                return tweet;
             }
 
             return null;
         }
 
         /// <inheritdoc/>
-        public void AddTwitt(string twitt)
+        public void AddTwitt(string tweet)
         {
-            this.queue.Add(twitt);
+            this.queue.Add(tweet);
         }
     }
 }

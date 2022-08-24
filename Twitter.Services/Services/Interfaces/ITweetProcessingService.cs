@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Twitter.Service.Services.Interfaces
 {
-    public interface ITwittProcessingService
+    public interface ITweetProcessingService
     {        
         Task ProcessTwittsAsync(CancellationToken cancellationToken);
     }

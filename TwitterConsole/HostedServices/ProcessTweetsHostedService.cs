@@ -7,41 +7,42 @@ using Twitter.Service.Services.Interfaces;
 
 namespace Twitter.HostedServices
 {
-    public class RetrieveDataFromExternalServiceHostedService : BackgroundService
+    public class ProcessTweetsHostedService : BackgroundService
     {
-        private readonly ILogger<RetrieveDataFromExternalServiceHostedService> _logger;
-        private readonly ITwitterConsumerService _twitterConsumerService;
-        
+        private readonly ILogger<ProcessTweetsHostedService> _logger;
+        private readonly ITweetProcessingService _tweetProcessingService;
 
-        public RetrieveDataFromExternalServiceHostedService(ILogger<RetrieveDataFromExternalServiceHostedService> logger,ITwitterConsumerService twitterConsumerService)
+        public ProcessTweetsHostedService(
+            ILogger<ProcessTweetsHostedService> logger,
+            IServiceScopeFactory scopeFactory, ITweetProcessingService tweetProcessingService)
         {
             this._logger = logger;
-            _twitterConsumerService = twitterConsumerService;
+            _tweetProcessingService = tweetProcessingService;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             try
-            {_logger.LogInformation("Queue the retrieved data into memory");
-
-            await DoWork(stoppingToken);
+            {
+                _logger.LogInformation("ProcessDataHostedService running.");
+                await DoWork(stoppingToken);
             }
             catch (System.Exception ex)
             {
                 _logger.LogError(ex.Message);
-                throw ex;
+                throw;
             }
+
         }
 
         private async Task DoWork(CancellationToken stoppingToken)
         {
-            await _twitterConsumerService.ConsumeAsync(stoppingToken);
+            await _tweetProcessingService.ProcessTwittsAsync(stoppingToken);
         }
 
         public override async Task StopAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("Queue the retrieved data into memory stopping");
-
+            _logger.LogInformation("Processing Twitts Hosted Service is stopping.");
             await base.StopAsync(stoppingToken);
         }
     }

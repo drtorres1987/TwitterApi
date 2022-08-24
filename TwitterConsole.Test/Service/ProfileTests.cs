@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-
 using NUnit.Framework;
 using System.Collections.Generic;
 using Twitter.DataAccess.Entities;
@@ -17,7 +16,7 @@ namespace TwitterConsole.Test.AutoMapper.Service
         [SetUp]
         public void Setup()
         {            
-            config = new MapperConfiguration(cfg => cfg.AddProfile<TwittProfile>());
+            config = new MapperConfiguration(cfg => cfg.AddProfile<TweetProfile>());
             config.AssertConfigurationIsValid();
 
             mapper = config.CreateMapper();
@@ -27,13 +26,13 @@ namespace TwitterConsole.Test.AutoMapper.Service
         public void Test_Twitt_Mapper()
         {
             var tag = "TagTest";
-            var twitt = "Test";
-            var twittINfo = new TwittInfo()
+            var tweet = "Test";
+            var tweetInfo = new TweetInfo()
             {
-                Data = new TwitInfoData()
+                Data = new TweetInfoData()
                 {
-                    Text = twitt,
-                    Entities = new TwitInfoEntity()
+                    Text = tweet,
+                    Entities = new TweetInfoEntity()
                     {
                         HashTags = new List<Twitter.Service.Models.Twitter.HashTag>()
                         {
@@ -47,10 +46,10 @@ namespace TwitterConsole.Test.AutoMapper.Service
                 }
             };
 
-            var actual = mapper.Map<Twitt>(twittINfo);
+            var actual = mapper.Map<Tweet>(tweetInfo);
 
             // Arrange
-            Assert.AreEqual(actual.Text, twittINfo.Data.Text);
+            Assert.AreEqual(actual.Text, tweetInfo.Data.Text);
         }
     }
 }

@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 
 namespace Twitter.Service.Services
 {
-    public class TwittService : ITwittService
+    public class TweetService : ITweetService
     {
-        private readonly ITwittRepository _twittRepository;
+        private readonly ITweetRepository _tweetRepository;
         private readonly IHashTagRepository _hashTagRepository;
         private readonly IMapper _mapper;
 
-        public TwittService( ITwittRepository twittRepository, IHashTagRepository hashTagRepository, IMapper mapper)
+        public TweetService( ITweetRepository tweetRepository, IHashTagRepository hashTagRepository, IMapper mapper)
         {
-            this._twittRepository = twittRepository;
+            this._tweetRepository = tweetRepository;
             this._hashTagRepository = hashTagRepository;
             this._mapper = mapper;
         }
 
         /// <inheritdoc/>
-        public void AddTwittAsync(TwittInfo twitt)
+        public void AddTweetAsync(TweetInfo tweet)
         {
-            var twittEntity = this._mapper.Map<Twitt>(twitt);
-            this._twittRepository.Add(twittEntity);
+            var tweetEntity = this._mapper.Map<Tweet>(tweet);
+            this._tweetRepository.Add(tweetEntity);
 
-            foreach (var hash in twittEntity.HashTags)
+            foreach (var hash in tweetEntity.HashTags)
                 this._hashTagRepository.Add(hash);
         }
     }

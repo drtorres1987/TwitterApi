@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace Twitter.Service.Services.Interfaces
 {
-    public interface ITwittService
+    public interface ITweetService
     {        
-        void AddTwittAsync(TwittInfo twitt);
+        void AddTweetAsync(TweetInfo tweet);
     }
 }

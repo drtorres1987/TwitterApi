@@ -9,12 +9,12 @@ namespace Twitter.Service.Services
     public class HashTagService : IHashTagService
     {
         private readonly IHashTagRepository _hashTagRepository;
-        private readonly ITwittRepository _twittRepository;
+        private readonly ITweetRepository _tweetRepository;
 
-        public HashTagService(IHashTagRepository hasTagRepository, ITwittRepository twittRepository)
+        public HashTagService(IHashTagRepository hasTagRepository, ITweetRepository tweetRepository)
         {
             this._hashTagRepository = hasTagRepository;
-            this._twittRepository = twittRepository;
+            this._tweetRepository = tweetRepository;
         }
 
         /// <inheritdoc/>
@@ -22,7 +22,7 @@ namespace Twitter.Service.Services
         {
             var result = new HashTagReport
             {
-                TotalTwitts = this._twittRepository.TotalCount()
+                TotalTwitts = this._tweetRepository.TotalCount()
             };
             var hasTags = this._hashTagRepository.TopHashTags(number);
             result.HashTags = hasTags.Select(c => new HashTagRecord()

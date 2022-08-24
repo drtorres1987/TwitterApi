@@ -14,30 +14,30 @@ namespace TwitterConsole.Test.Services
     [TestFixture()]
     public class ServiceTest
     {
-        private ITwittRepository _twittRepository;
+        private ITweetRepository _tweetRepository;
         private IHashTagRepository _hashTagRepository;
         private IMapper _mapper;
-        private ITwittService _twittService;
+        private ITweetService _tweetService;
 
         [SetUp]
         public void Setup()
         {
 
             _hashTagRepository = Mock.Of<IHashTagRepository>();
-            _twittRepository = Mock.Of<ITwittRepository>();
+            _tweetRepository = Mock.Of<ITweetRepository>();
             _mapper = Mock.Of<IMapper>();
-            this._twittService = new TwittService( _twittRepository, _hashTagRepository, _mapper);
+            this._tweetService = new TweetService( _tweetRepository, _hashTagRepository, _mapper);
         }
 
         [Test]
-        public async Task When_AddTwittAsync()
+        public void When_AddTwittAsync()
         {
             var tag = "TagTest";
-            var twitt = "Test";           
+            var tweet = "Test";           
 
-            var twit = new Twitt()
+            var twit = new Tweet()
             {
-                Text = twitt,
+                Text = tweet,
                 HashTags = new List<Twitter.DataAccess.Entities.HashTag>()
                 {
                     new Twitter.DataAccess.Entities.HashTag()
@@ -47,12 +47,12 @@ namespace TwitterConsole.Test.Services
                 }
             };            
 
-            var twittINfo = new TwittInfo()
+            var tweetInfo = new TweetInfo()
             {
-                Data = new TwitInfoData()
+                Data = new TweetInfoData()
                 {
-                    Text = twitt,
-                    Entities = new TwitInfoEntity()
+                    Text = tweet,
+                    Entities = new TweetInfoEntity()
                     {
                         HashTags = new List<Twitter.Service.Models.Twitter.HashTag>()
                         {
@@ -68,14 +68,14 @@ namespace TwitterConsole.Test.Services
                 .Setup(s => s.Add(It.IsAny<Twitter.DataAccess.Entities.HashTag>()));     
 
             Mock.Get(_mapper)
-                .Setup(s => s.Map<Twitt>(It.IsAny<TwittInfo>()))
+                .Setup(s => s.Map<Tweet>(It.IsAny<TweetInfo>()))
                 .Returns(twit);
 
-            Mock.Get(_twittRepository)
-                .Setup(s => s.Add(It.IsAny<Twitt>()));
+            Mock.Get(_tweetRepository)
+                .Setup(s => s.Add(It.IsAny<Tweet>()));
             
 
-            _twittService.AddTwittAsync(twittINfo);
+            _tweetService.AddTweetAsync(tweetInfo);
 
             // Assert
             Mock.VerifyAll();

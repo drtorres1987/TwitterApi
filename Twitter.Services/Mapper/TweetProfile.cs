@@ -5,11 +5,11 @@ using Twitter.DataAccess;
 
 namespace Twitter.Service.Mapper
 {
-    public class TwittProfile : Profile
+    public class TweetProfile : Profile
     {
-        public TwittProfile()
+        public TweetProfile()
         {
-            CreateMap<TwittInfo, Twitt>()
+            CreateMap<TweetInfo, Tweet>()
                 .ForMember(dest => dest.TwitterId, opt => opt.MapFrom(src => src.Data.Id))
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ForMember(dest => dest.Text, opt => opt.MapFrom(src => src.Data.Text))

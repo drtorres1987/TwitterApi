@@ -13,15 +13,15 @@ namespace TwitterConsole.Test.Services
     public class HashTagServiceTests
     {
         private IHashTagRepository hashTagRepository;
-        private ITwittRepository twittRepository;
+        private ITweetRepository tweetRepository;
         private IHashTagService reportService;
 
         [SetUp]
         public void Setup()
         {
-            twittRepository = Mock.Of<ITwittRepository>();
+            tweetRepository = Mock.Of<ITweetRepository>();
             hashTagRepository = Mock.Of<IHashTagRepository>();
-            reportService = new HashTagService(hashTagRepository, twittRepository);
+            reportService = new HashTagService(hashTagRepository, tweetRepository);
         }
 
         [Test]
@@ -32,7 +32,7 @@ namespace TwitterConsole.Test.Services
             Mock.Get(hashTagRepository)
                 .Setup(s => s.TopHashTags(It.IsAny<int>()))
                 .Returns(test);
-            Mock.Get(twittRepository)
+            Mock.Get(tweetRepository)
                 .Setup(s => s.TotalCount())
                 .Returns(total);
             var result = await reportService.GetHashTags(2);

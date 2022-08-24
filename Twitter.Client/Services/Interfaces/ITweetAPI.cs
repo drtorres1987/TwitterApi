@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace Twitter.Client.Interfaces
 {
-    public interface ITwiitAPI
+    public interface ITweetAPI
     {
         IAsyncEnumerable<string> GetTwittsAsync( CancellationToken cancellationToken = default);
     }

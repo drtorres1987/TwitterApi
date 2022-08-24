@@ -7,23 +7,23 @@ using System.Collections.Concurrent;
 
 namespace Twitter.DataAccess.Repositories
 {
-    public class TwittRepository : ITwittRepository
+    public class TweetRepository : ITweetRepository
     {
-        private ConcurrentBag<Twitt> twitts;
+        private ConcurrentBag<Tweet> tweets;
 
-        public TwittRepository()
+        public TweetRepository()
         {
-            twitts = new ConcurrentBag<Twitt>();
+            tweets = new ConcurrentBag<Tweet>();
         }
 
-        public void Add(Twitt entity)
+        public void Add(Tweet entity)
         {
-            twitts.Add(entity);
+            tweets.Add(entity);
         }
 
         public int TotalCount()
         {
-            return twitts.Count;
+            return tweets.Count;
         }
 
 
