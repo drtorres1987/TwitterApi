@@ -22,7 +22,7 @@ namespace Twitter.Service.Services
         {
             var result = new HashTagReport
             {
-                TotalTwitts = this._tweetRepository.TotalCount()
+                TotalTweets = this._tweetRepository.TotalCount()
             };
             var hasTags = this._hashTagRepository.TopHashTags(number);
             result.HashTags = hasTags.Select(c => new HashTagRecord()

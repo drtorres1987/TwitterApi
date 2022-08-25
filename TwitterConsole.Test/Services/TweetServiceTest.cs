@@ -30,12 +30,12 @@ namespace TwitterConsole.Test.Services
         }
 
         [Test]
-        public void When_AddTwittAsync()
+        public void When_AddTweetAsync()
         {
             var tag = "TagTest";
             var tweet = "Test";           
 
-            var twit = new Tweet()
+            var tweetObject = new Tweet()
             {
                 Text = tweet,
                 HashTags = new List<Twitter.DataAccess.Entities.HashTag>()
@@ -69,7 +69,7 @@ namespace TwitterConsole.Test.Services
 
             Mock.Get(_mapper)
                 .Setup(s => s.Map<Tweet>(It.IsAny<TweetInfo>()))
-                .Returns(twit);
+                .Returns(tweetObject);
 
             Mock.Get(_tweetRepository)
                 .Setup(s => s.Add(It.IsAny<Tweet>()));

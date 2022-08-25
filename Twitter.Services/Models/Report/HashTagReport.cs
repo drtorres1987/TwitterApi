@@ -4,7 +4,7 @@ namespace Twitter.Service.Models.Report
 {
     public class HashTagReport
     {
-        public int TotalTwitts { get; set; }
+        public int TotalTweets { get; set; }
         public IEnumerable<HashTagRecord> HashTags { get; set; } = new List<HashTagRecord>();
     }
 }

@@ -20,7 +20,7 @@ namespace Twitter.Service.Services
         }
 
         /// <inheritdoc/>
-        public async Task ProcessTwittsAsync(CancellationToken cancellationToken)
+        public async Task ProcessTweetsAsync(CancellationToken cancellationToken)
         {
             while (!cancellationToken.IsCancellationRequested)
             {
@@ -31,7 +31,7 @@ namespace Twitter.Service.Services
                         await Task.Delay(200, cancellationToken);
                         continue;
                     }
-                    var tweet = _queue.GetTwitt();
+                    var tweet = _queue.GetTweet();
                     if (tweet != null)
                         this._service.AddTweetAsync(tweet);
                 }

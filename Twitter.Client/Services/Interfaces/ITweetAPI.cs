@@ -6,6 +6,6 @@ namespace Twitter.Client.Interfaces
 {
     public interface ITweetAPI
     {
-        IAsyncEnumerable<string> GetTwittsAsync( CancellationToken cancellationToken = default);
+        IAsyncEnumerable<string> GetTweetsAsync( CancellationToken cancellationToken = default);
     }
 }

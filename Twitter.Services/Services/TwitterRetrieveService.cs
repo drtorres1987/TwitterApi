@@ -27,9 +27,9 @@ namespace Twitter.Service.Services
         /// <inheritdoc/>
         public async Task ConsumeAsync(CancellationToken cancellationToken)
         {
-            await foreach (var tweet in this._twitterClient.GetTwittsAsync(cancellationToken).WithCancellation(cancellationToken))
+            await foreach (var tweet in this._twitterClient.GetTweetsAsync(cancellationToken).WithCancellation(cancellationToken))
             {
-                _queue.AddTwitt(tweet);
+                _queue.AddTweet(tweet);
             }
         }
     }

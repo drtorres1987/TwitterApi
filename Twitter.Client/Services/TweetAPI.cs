@@ -20,7 +20,7 @@ namespace Twitter.Client.Services
             this.options = options;
         }
 
-        public async IAsyncEnumerable<string> GetTwittsAsync([EnumeratorCancellation] CancellationToken cancellationToken = default)
+        public async IAsyncEnumerable<string> GetTweetsAsync([EnumeratorCancellation] CancellationToken cancellationToken = default)
         {
             _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {options.Value.Token}");
 

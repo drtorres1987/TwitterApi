@@ -27,7 +27,7 @@ namespace Twitter.Service.Services
         }
 
         /// <inheritdoc/>
-        public TweetInfo GetTwitt()
+        public TweetInfo GetTweet()
         {
             if (this.queue.TryTake(out string result))
             {
@@ -57,7 +57,7 @@ namespace Twitter.Service.Services
         }
 
         /// <inheritdoc/>
-        public void AddTwitt(string tweet)
+        public void AddTweet(string tweet)
         {
             this.queue.Add(tweet);
         }

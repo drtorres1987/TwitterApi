@@ -24,7 +24,7 @@ namespace Twitter.HostedServices
         {
             try
             {
-                _logger.LogInformation("ProcessDataHostedService running.");
+                _logger.LogInformation("Processing Tweets Hosted Service is running.");
                 await DoWork(stoppingToken);
             }
             catch (System.Exception ex)
@@ -37,12 +37,12 @@ namespace Twitter.HostedServices
 
         private async Task DoWork(CancellationToken stoppingToken)
         {
-            await _tweetProcessingService.ProcessTwittsAsync(stoppingToken);
+            await _tweetProcessingService.ProcessTweetsAsync(stoppingToken);
         }
 
         public override async Task StopAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("Processing Twitts Hosted Service is stopping.");
+            _logger.LogInformation("Processing Tweets Hosted Service is stopping.");
             await base.StopAsync(stoppingToken);
         }
     }

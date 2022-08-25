@@ -5,6 +5,6 @@ namespace Twitter.Service.Services.Interfaces
 {
     public interface ITweetProcessingService
     {        
-        Task ProcessTwittsAsync(CancellationToken cancellationToken);
+        Task ProcessTweetsAsync(CancellationToken cancellationToken);
     }
 }

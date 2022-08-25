@@ -51,7 +51,7 @@ namespace Twitter.HostedServices
                 var result = await _reportService.GetHashTags(_options.Value.TopRetrieveCount);
                 var data = this.mapper.Map<HashTagReport>(result);
                 var listTags = data.HashTags.Select(x => x.Tag);
-                _logger.LogInformation("Twitter HashTags:{data}/ TotalTwitts: {count}", string.Join(",", listTags), data.TotalTwitts);
+                _logger.LogInformation("Twitter HashTags:{data}/ TotalTweets: {count}", string.Join(",", listTags), data.TotalTweets);
             }
             catch (Exception ex)
             {

@@ -38,7 +38,7 @@ namespace TwitterConsole.Test.Services
             var result = await reportService.GetHashTags(2);
 
             // Assert
-            Assert.AreEqual(result.TotalTwitts, total);
+            Assert.AreEqual(result.TotalTweets, total);
             Mock.VerifyAll();
         }
     }

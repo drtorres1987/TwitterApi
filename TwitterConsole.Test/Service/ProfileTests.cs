@@ -23,7 +23,7 @@ namespace TwitterConsole.Test.AutoMapper.Service
         }
 
         [Test]
-        public void Test_Twitt_Mapper()
+        public void Test_Tweet_Mapper()
         {
             var tag = "TagTest";
             var tweet = "Test";
