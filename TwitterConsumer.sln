@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twitter.Console", "TwitterConsole\Twitter.Console.csproj", "{7935FF1D-0922-4E99-BE0F-90B8DF618A1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twitter.Console", "Twitter.Console\Twitter.Console.csproj", "{7935FF1D-0922-4E99-BE0F-90B8DF618A1C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twitter.DataAccess", "Twitter.DataAccess\Twitter.DataAccess.csproj", "{20C00D72-B603-423F-8949-705D4F317494}"
 EndProject
@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twitter.Services", "Twitter
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{88E4AC45-38F6-4E24-AB27-34FB17990EA1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitterConsumer.Test", "TwitterConsole.Test\TwitterConsumer.Test.csproj", "{B0522D4E-989D-49DD-9866-3C0D330E8438}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitterConsumer.Test", "Twitter.Tests\TwitterConsumer.Test.csproj", "{B0522D4E-989D-49DD-9866-3C0D330E8438}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
